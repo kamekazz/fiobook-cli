@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+a{
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgb(253, 253, 0)
+}
+
+button {
+    cursor: pointer;
+}
+
+section{
+    min-height: 600px
+}
