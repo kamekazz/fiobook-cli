@@ -12,6 +12,8 @@ import { DataService } from './data.service';
 export class AppComponent {
   searchTerm = ''
   isCollpased = true;
+  navbarOpen = false;
+
 
   constructor(
     private router: Router,
@@ -29,9 +31,11 @@ export class AppComponent {
     this.isCollpased= true;
   }
 
-  // closeDropdoown(dropdown){
-  //   dropdown.close()
-  // }
+
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
   logout(){
     this.data.user ={}
