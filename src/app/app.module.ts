@@ -11,7 +11,7 @@ import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 
@@ -20,7 +20,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     MessageComponent,
-    NavbarComponent,
     RegistrationComponent,
     LoginComponent
   ],

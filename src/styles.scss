@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+$main: #032d61;
+
+.bg-main {
+    background-color: $main;
+}
+
+
 a{
     cursor: pointer;
 }
 
 a:hover{
     text-decoration: none;
-    color: rgb(253, 253, 0)
+    color:rgb(7, 233, 177)
 }
 
 button {
@@ -15,3 +22,11 @@ button {
 section{
     min-height: 600px
 }
+
+body{
+    background-color: rgb(48, 47, 47)
+}
+
+ul {
+    list-style: none;
+  }
