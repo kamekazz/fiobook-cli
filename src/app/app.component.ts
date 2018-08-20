@@ -39,7 +39,6 @@ export class AppComponent {
 
   logout(){
     this.data.user ={}
-    this.data.cartItems = 0
     localStorage.clear();
     this.router.navigate([''])
   }

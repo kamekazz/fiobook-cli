@@ -11,24 +11,32 @@ import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
-
+import 'hammerjs';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-
+import { DashbordComponent } from './dashbord/dashbord.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { CliDeComponent } from './cli-de/cli-de.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    DashbordComponent,
+    ClienteComponent,
+    CliDeComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,BrowserAnimationsModule
 
   ],
   providers: [RestApiService,DataService,AuthGuardService],
