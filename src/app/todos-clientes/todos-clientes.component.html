@@ -1,0 +1,21 @@
+<div class="card bg-ligth" >
+<h3>Todos Los Cliente</h3>
+<app-message></app-message>
+<div *ngIf="!allClientes" class="m-auto">
+  <h1 class="text-center display-3 mt-5">
+    <i class="fa fa-spinner fa-spin"></i>
+  </h1>
+</div>
+  <div *ngFor="let cliente of allClientes" class="col-md-3 mb-5">
+    <a routerLink="/clienteid/{{cliente._id}}">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Numbre: {{cliente.name}}</h5>
+          <p class="card-text">Apodo: {{cliente.apodo}}</p>
+          <p class="card-text">Clalida: {{cliente.averageRating}}</p>
+          <p class="card-text">Creado{{cliente.created | date }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

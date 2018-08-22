@@ -19,6 +19,11 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { CliDeComponent } from './cli-de/cli-de.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HistoryComponent } from './history/history.component';
+import {MatTableModule} from '@angular/material/table';
+import { ClientProfielComponent } from './client-profiel/client-profiel.component';
+import { TodosClientesComponent } from './todos-clientes/todos-clientes.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -29,13 +34,15 @@ import { HistoryComponent } from './history/history.component';
     DashbordComponent,
     ClienteComponent,
     CliDeComponent,
-    HistoryComponent
+    HistoryComponent,
+    ClientProfielComponent,
+    TodosClientesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule,
+    FormsModule,MatTableModule,FlexLayoutModule,
     HttpClientModule,BrowserAnimationsModule
 
   ],

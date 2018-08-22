@@ -56,14 +56,7 @@ export class ClienteComponent implements OnInit {
         )
         if (data['success']) {
           this.router.navigate([''])
-          localStorage.setItem('token',data['token'])
-          await this.data.getProfile()
-          this.router.navigate(['profile/address'])
-            .then(()=>{
-              this.data.success(
-                'registration successfull please your shipping addree below'
-              )
-            }).catch(error => this.data.error(error))
+          this.data.success(data['message'])
         } else {
           this.data.error(data['message'])
         }
