@@ -28,3 +28,21 @@ body{
 ul {
     list-style: none;
   }
+
+  .star{
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.full{
+    color: gold;
+}
+
+.half{
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: gold;
+}

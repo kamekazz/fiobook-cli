@@ -3,13 +3,14 @@ import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
 
 @Component({
-  selector: 'app-todos-clientes',
-  templateUrl: './todos-clientes.component.html',
-  styleUrls: ['./todos-clientes.component.scss']
+  selector: 'app-miss-cliente',
+  templateUrl: './miss-cliente.component.html',
+  styleUrls: ['./miss-cliente.component.scss']
 })
-export class TodosClientesComponent implements OnInit {
+export class MissClienteComponent implements OnInit {
 
-  allClientes:any
+  allClientes2= []
+  
 
 
  
@@ -20,22 +21,21 @@ export class TodosClientesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllCliente()
+    this.getmisCliente()
   }
 
 
 
-  async getAllCliente(){
+  async getmisCliente(){
     try {
       const data = await this.rest.get(
-        `http://127.0.0.1:3030/api/cliente`
+        `http://127.0.0.1:3030/api/debet/`
       )
       data['success']
-        ? (this.allClientes = data['data'])
+        ? (this.allClientes2 = data['data'])
         : this.data.error('Could not ferch allClientes..')
     } catch (error) {
       this.data.error(error['message'])
     }
   }
-  
 }

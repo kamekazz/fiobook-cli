@@ -1,0 +1,53 @@
+<div class="card bg-ligth">
+    <app-message></app-message>
+  <div *ngIf="detCard">
+     <h1 >Titulo: {{detCard.name}}</h1>
+     <h2>Total:$ {{detCard.total |  number}}</h2>
+     <h2>Monto Maxsiom Del Credito:$ {{detCard.capmax |  number}}</h2>
+     <p>{{detCard.created | date }}</p>
+     <p>nota : {{detCard.nota}}</p>
+  </div>
+  <button type="button" (click)="fiar()" class="btn btn-success">Fiar</button>
+  <div *ngIf="fierView">
+      <form action="">
+        <input type="text" [(ngModel)]="fnotaFrom" name="notaFrom" placeholder="notaFrom">
+        <input type="number" [(ngModel)]="fpagosFrom" name="pagosFrom" placeholder="pagos">
+        <button type="button" (click)="fsometerPagos()" [disabled]="btnDisabled" class="btn btn-primary">Someter</button>
+      </form>
+    </div>
+  <button type="button" (click)="pagar()"class="btn btn-danger">Pagar</button>
+  <div *ngIf="pagosView">
+    <form action="">
+      <input type="text" [(ngModel)]="pnotaFrom" name="notaFrom" placeholder="notaFrom">
+      <input type="number" [(ngModel)]="ppagosFrom" name="pagosFrom" placeholder="pagos">
+      <button type="button" (click)="psometerPagos()" [disabled]="btnDisabled" class="btn btn-primary">Someter</button>
+    </form>
+  </div>
+
+  <div *ngIf="pagosArry" class="card bg-ligth">
+      <h4>Fiado:</h4>
+      <div  *ngFor="let deudaId of detCard.dabets">
+          <div class="p-3">
+              <p >nota: {{deudaId.nota}}</p>
+              <p >cantida:$ {{deudaId.cantida |  number}}</p>
+              <p >fecha: {{deudaId.created | date}}</p>
+            <hr>
+          </div>
+      </div>
+  </div>
+
+  <div *ngIf="pagosArry" class="card bg-ligth">
+      <h4>pagos:</h4>
+      <div  *ngFor="let deudaId of pagosArry">
+          <div class="p-3">
+            <p >nota: {{deudaId.nota}}</p>
+            <p>cantida:$ {{deudaId.cantida |  number}}</p>
+            <p>fecha: {{deudaId.created | date}}</p>
+
+            <hr>
+          </div>
+      </div>
+  </div>
+
+</div>
+

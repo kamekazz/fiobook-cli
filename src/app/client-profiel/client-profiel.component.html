@@ -7,18 +7,56 @@
           <div>
             <h1>{{cliente.name}}</h1>
             <h4>Estrella:{{cliente.averageRating}}</h4>
+            <div class="col-6">
+              <ngb-rating [(rate)]="cliente.averageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+            </div>
           </div>
           <div >
-            <button type="button" (click)="fiarV1()" class="btn btn-success">Fiar</button>
-            <button type="button" (click)="pagarV1()" class="btn btn-danger">pagar</button>
-            <button *ngIf="!linadeCreditoFormVies" type="button" (click)="newLiniadeCreditoV1()" class="btn btn-primary">pagar</button>
+            <button *ngIf="!linadeCreditoFormVies" type="button" (click)="newLiniadeCreditoV1()" class="btn btn-primary">Anadir linea de credito</button>
+            <button *ngIf="!linadeCreditoFormVies" type="button" (click)="onClickAddbtn()" class="btn btn-primary">Add Rating</button>
+            <button *ngIf="!linadeCreditoFormVies" type="button" (click)="onClickAddbtnviewRivieBtn()" class="btn btn-primary">View Rating</button>
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="linadeCreditoFormVies" class="card bg-ligth">
-      <form>
 
+    <div *ngIf="viewRivieBtn" class="card bg-light my-5">
+      <div class="card-body">
+        <h4>Todo los  Review</h4>
+        <hr>
+        <div *ngFor="let review of cliente.reviews">
+          <div class="p-3">
+            <p >tienda: {{review.userId.tienda}}</p>
+            <p >Nota: {{review.nota}}</p>
+            <p >Calida de paga: {{review.star}}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="addRivieBtn" class="card bg-light my-5">
+      <div class="card-body">
+        <h4>Add a Review</h4>
+        <hr>
+        <div class="form">
+          <div class="form-group">
+            <label>Nota</label>
+            <textarea name="description" class="form-control" rows="5"  [(ngModel)]="myReview.description"></textarea>
+          </div>
+          <label>Rating</label>
+          <br>
+          <ngb-rating [(rate)]="myReview.rating" [starTemplate]="t" [readonly]="false" max="5"></ngb-rating>
+          <br>
+          <br>
+          <button type="button" class="btn btn-info" (click)="postReview()" [disabled]="btnDisable">Post Review</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="linadeCreditoFormVies" class="card bg-ligth">
+
+      <form>
         <div class="form-group">
           <label >Credito</label>
           <input type="text" class="form-control" name="name" [(ngModel)]="name"  placeholder="Numbre de Credito">
@@ -36,6 +74,7 @@
 
         <button type="submit" (click)="oncretLine()" class="btn btn-primary"  [disabled]="btnDisabled">Someter</button>
       </form>
+
     </div>
     <div class="card bg-ligth">
 
@@ -45,8 +84,27 @@
     </div>
     <div class="card bg-ligth">
       <h4>Linea de Credito:</h4>
-      <div>
+      <div  *ngFor="let deudaId of alldebet">
+          <a routerLink="/debet/{{deudaId._id}}">
+          <div class="p-3">
+            <p >Numbre: {{deudaId.name}}</p>
+            <p >Nota: {{deudaId.nota}}</p>
+            <p >Monto Maxsimo Permitido: {{deudaId.capmax}}</p>
+            <hr>
+          </div>
+          </a>
       </div>
     </div>
   </div>
 </section>
+
+
+
+<ng-template #t let-fill="fill" >
+  <span *ngIf="fill === 100" class="star full">&#9733;</span>
+  <span *ngIf="fill === 0" class="star ">&#9733;</span>
+  <span *ngIf="fill < 100 && fill > 0" class="star">
+   <span  class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+
+</ng-template>

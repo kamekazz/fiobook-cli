@@ -9,8 +9,8 @@ import { RestApiService } from '../rest-api.service';
   styleUrls: ['./client-profiel.component.scss']
 })
 export class ClientProfielComponent implements OnInit {
-  cliente
-  ewArr = [];
+  cliente:any
+  alldebet
   
   ///form
   name = '';
@@ -20,9 +20,13 @@ export class ClientProfielComponent implements OnInit {
   total
   btnDisabled = false
 
-  fiarFormVies = false
-  pagarFormVies = false
+  myReview= {
+    description:'',
+    rating: 0
+  }
+  viewRivieBtn = false
   linadeCreditoFormVies = false
+  addRivieBtn = false;
 
   constructor(
     private data:DataService,
@@ -34,7 +38,6 @@ export class ClientProfielComponent implements OnInit {
 
   ngOnInit() {
     this.getProfiel()
-    
   }
 
   getProfiel(){
@@ -42,7 +45,9 @@ export class ClientProfielComponent implements OnInit {
       this.rest.get(`http://127.0.0.1:3030/api/cliente/${res['id']}`)
       .then((data) => {
         data['success']
-          ? (this.cliente = data['data'])
+          ? (this.cliente = data['data']).then(
+            this.alldebet = this.cliente.deudaId
+          )
           : this.router.navigate(['/'])
       }).catch((err) => {
         this.data.error(err['message'])
@@ -50,49 +55,70 @@ export class ClientProfielComponent implements OnInit {
     })
   }
 
-  // ckIfDef(){
-  //   let fiadorId = this.data.user._id
-  //   let array = this.cliente.deudaId
-  
-  //   var newArr = array.filter(function(item){
-  //     return item._id === fiadorId;
-   
-  // });
+  async postReview(){
+    this.btnDisabled= true
+    try {
+      const data = await this.rest.post(
+        'http://127.0.0.1:3030/api/review/new',
+        {
+          cienteId: this.cliente._id,
+          nota: this.myReview.description,
+          star: this.myReview.rating,
+        }
+      );
+      data['success']
+        ? this.data.success(data['message'])
+        : this.data.error(data['message'])
+    } catch (error) {
+      this.data.error(error['message'])
+    }
+    this.getProfiel()
+    this.onClickAddbtn()
+    this.myReview= {
+      description:'',
+      rating: 0
+    }
+    window.scrollTo(0, 0)
+    this.btnDisabled= false
 
-  //   console.log("Filter results:",newArr);
-  
+  }
 
-  // }
 
   newLiniadeCreditoV1(){
     this.linadeCreditoFormVies = true
     this.cienteId = this.cliente._id
-    console.log(this.cienteId);
+  }
+
+  onClickAddbtnviewRivieBtn(){
+    this.viewRivieBtn = !this.viewRivieBtn
   }
 
   async oncretLine(){
     this.btnDisabled=true
+    this.linadeCreditoFormVies = true
     try {
       const data = await this.rest.post(
         'http://127.0.0.1:3030/api/debet/new',
         {
           name: this.name,
           nota: this.nota,
-          clienteId: this.cienteId,
+          ciId: this.cienteId,
           capmax: this.capmax,
           total: this.total
         }
       )
-      if (data['success']) {
-        this.data.success(data['message'])
-      } else {
-        this.data.error(data['message'])
-      }
+      data['success'] 
+      ? (this.data.success(data['message']) )
+      :this.data.error(data['message'])
+      
     } catch (error) {
-      console.log(error);
+      this.data.error(error['message'])
     }
     this.btnDisabled= false
     this.linadeCreditoFormVies = false
   }
 
+  onClickAddbtn(){
+    this.addRivieBtn = !this.addRivieBtn
+  }
 }

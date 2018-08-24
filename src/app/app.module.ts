@@ -23,6 +23,8 @@ import {MatTableModule} from '@angular/material/table';
 import { ClientProfielComponent } from './client-profiel/client-profiel.component';
 import { TodosClientesComponent } from './todos-clientes/todos-clientes.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { DebetCardComponent } from './debet-card/debet-card.component';
+import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     CliDeComponent,
     HistoryComponent,
     ClientProfielComponent,
-    TodosClientesComponent
+    TodosClientesComponent,
+    DebetCardComponent,
+    MissClienteComponent
   ],
   imports: [
     BrowserModule,

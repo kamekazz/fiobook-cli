@@ -16,6 +16,9 @@
     <div class="collapse navbar-collapse"
          [ngClass]="{ 'show': navbarOpen }">
       <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a *ngIf="token" class="nav-link" routerLink="/">Lobby</a>
+            </li>
         <li class="nav-item">
           <a *ngIf="!token" class="nav-link" routerLink="/register">Reristrasion</a>
         </li>
