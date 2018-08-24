@@ -10,14 +10,14 @@ import { AuthGuardService } from './auth-guard.service';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 
 const routes: Routes = [
-  {path:'',component:DashbordComponent},
-  {path:'cliente',component:ClienteComponent},
-  {path:'clienteid/:id',component:ClientProfielComponent},
-  {path:'debet/:id',component:DebetCardComponent},
+  {path:'',component:DashbordComponent,canActivate:[AuthGuardService]},
+  {path:'cliente',component:ClienteComponent,canActivate:[AuthGuardService]},
+  {path:'clienteid/:id',component:ClientProfielComponent,canActivate:[AuthGuardService]},
+  {path:'debet/:id',component:DebetCardComponent,canActivate:[AuthGuardService]},
   {path:'register',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
-  {path:'clientserch',component:CliSergComponent},
-  {path:'**',component:DashbordComponent},
+  {path:'clientserch',component:CliSergComponent,canActivate:[AuthGuardService]},
+  {path:'**',redirectTo:''},
 
 ];
 

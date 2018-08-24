@@ -9,7 +9,7 @@ import { RestApiService } from '../rest-api.service';
   styleUrls: ['./cliente.component.scss']
 })
 export class ClienteComponent implements OnInit {
-
+  params1=''
   name = ''
   apodo = ''
   cedula =''
@@ -55,8 +55,10 @@ export class ClienteComponent implements OnInit {
           }
         )
         if (data['success']) {
-          this.router.navigate([''])
           this.data.success(data['message'])
+          this.params1 = data['cliente']
+          this.router.navigate([`clienteid/${this.params1}`])
+
         } else {
           this.data.error(data['message'])
         }
