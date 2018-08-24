@@ -25,6 +25,7 @@ import { TodosClientesComponent } from './todos-clientes/todos-clientes.componen
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { DebetCardComponent } from './debet-card/debet-card.component';
 import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
+import { CliSergComponent } from './cli-serg/cli-serg.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
     ClientProfielComponent,
     TodosClientesComponent,
     DebetCardComponent,
-    MissClienteComponent
+    MissClienteComponent,
+    CliSergComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { ClientProfielComponent } from './client-profiel/client-profiel.component';
 import { DebetCardComponent } from './debet-card/debet-card.component';
 import { AuthGuardService } from './auth-guard.service';
+import { CliSergComponent } from './cli-serg/cli-serg.component';
 
 const routes: Routes = [
   {path:'',component:DashbordComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'debet/:id',component:DebetCardComponent},
   {path:'register',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
+  {path:'clientserch',component:CliSergComponent},
   {path:'**',component:DashbordComponent},
 
 ];

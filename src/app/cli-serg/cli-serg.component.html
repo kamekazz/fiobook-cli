@@ -1,0 +1,13 @@
+<div class="card bg-ligth">
+  <div >
+    <form>
+      <input type="text">
+      <button>buescar</button>
+    </form>
+    <div *ngIf="clienteNoEncontrado">
+      <h3>este cliente no esta registrado en niengon libro</h3>
+      <button>anader cliente</button>
+    </div>
+  </div>
+</div>
+<app-todos-clientes></app-todos-clientes>
