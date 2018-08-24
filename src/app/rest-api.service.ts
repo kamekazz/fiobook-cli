@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '../../node_modules/@angular/common/http';
+import { query } from '@angular/animations';
 
 
 
@@ -24,5 +25,8 @@ export class RestApiService {
     return this.http.post(link, body, {headers: this.getHeaders() }).toPromise()
   }
 
+  getquery(link: string,body ){
+    return this.http.post(link, query, {headers: this.getHeaders() }).toPromise()
+  }
 
 }

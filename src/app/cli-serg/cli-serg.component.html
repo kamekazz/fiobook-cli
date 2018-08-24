@@ -1,12 +1,23 @@
 <div class="card bg-ligth">
   <div >
     <form>
-      <input type="text">
-      <button>buescar</button>
+      <input type="text" [(ngModel)]="serchForm" name="serchForm">
+      <button (click)="onSerchClient()">buescar</button>
     </form>
-    <div *ngIf="clienteNoEncontrado">
-      <h3>este cliente no esta registrado en niengon libro</h3>
-      <button>anader cliente</button>
+    <div >
+      <button type="button" routerLink="/cliente" class="btn btn-success"><i class="fas fa-user-plus"></i> Cliente</button>
+  </div>
+    <div *ngIf="resultOfSerch">
+      <h3>Busqueda por Nomber</h3>
+      <ul *ngFor="let rosn of resultOfSerch">
+       <a routerLink="/clienteid/{{rosn._id}}" routerLinkActive="router-link-active" ><li>{{rosn.name}}</li></a>
+      </ul>
+    </div>
+    <div *ngIf="resultOfSerchApodo">
+      <h3>Busqueda por Apodo</h3>
+      <ul *ngFor="let rosa of resultOfSerchApodo">
+        <a routerLink="/clienteid/{{rosa._id}}" routerLinkActive="router-link-active" ><li>{{rosa.apodo}}</li></a>
+      </ul>
     </div>
   </div>
 </div>
