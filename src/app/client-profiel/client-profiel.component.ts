@@ -11,7 +11,7 @@ import { RestApiService } from '../rest-api.service';
 export class ClientProfielComponent implements OnInit {
   cliente:any
   alldebet
-  
+  cliteApodoSerch
   ///form
   name = '';
   nota ='';
@@ -87,6 +87,7 @@ export class ClientProfielComponent implements OnInit {
   newLiniadeCreditoV1(){
     this.linadeCreditoFormVies = true
     this.cienteId = this.cliente._id
+    this.cliteApodoSerch = this.cliente.name +' '+ this.cliente.apodo 
   }
 
   onClickAddbtnviewRivieBtn(){
@@ -100,7 +101,7 @@ export class ClientProfielComponent implements OnInit {
       const data = await this.rest.post(
         'http://127.0.0.1:3030/api/debet/new',
         {
-          name: this.name,
+          name: this.cliteApodoSerch,
           nota: this.nota,
           ciId: this.cienteId,
           capmax: this.capmax,
