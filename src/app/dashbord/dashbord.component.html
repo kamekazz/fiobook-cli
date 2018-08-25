@@ -6,12 +6,14 @@
                 <div class="card-body">
                         <div>
                             <div >
-                                <form  >
-                                    <input type="text" class="form-control"  placeholder="Buescar Cliente.." name="search">
-                                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                                <form>
+                                    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Buescar Cliente.." name="search">
+                                    <button class="btn btn-primary" (click)="onserch()" type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
-
+                            <ul *ngFor="let cliente of resultOfSerch">
+                              <li>Nombre: {{cliente.clienteId.name}} -- Apodo: {{cliente.clienteId.apodo}} -- Nota: {{cliente.nota}}</li>
+                            </ul>
                         </div>
                 </div>
               </div>
