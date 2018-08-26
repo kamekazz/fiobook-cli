@@ -3,15 +3,28 @@
 
 <mat-sidenav-container class="app-sidenav-container">
   <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+
     <mat-toolbar color="primary">
-      Opsiones
+        ColBook
+        <span class="example-spacer"></span>
+        <img id="logo" src="../assets/img/logo.png">
+        
     </mat-toolbar>
-    <mat-list role="list">
-      <mat-list-item role="listitem">Item 1</mat-list-item>
-      <mat-list-item role="listitem">Item 2</mat-list-item>
-      <mat-list-item role="listitem">Item 3</mat-list-item>
-    </mat-list>
-      
+    <mat-nav-list *ngIf="token"> 
+      <mat-list-item *ngFor="let ruta of rutasArray">
+          <mat-icon >{{ruta.logo}}</mat-icon><a matLine routerLink="{{ruta.ruta}}">{{ ruta.name }}</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <hr>
+
+    <mat-toolbar *ngIf="token" (click)="logout()"  color="warn">
+        <mat-toolbar-row>
+            <span> Cerrar Sesión</span>
+            <span class="example-spacer"></span>
+            <mat-icon class="example-icon">error</mat-icon>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
   </mat-sidenav>
 
   <div class="app-sidenav-content">
@@ -19,10 +32,7 @@
     <div class="wrapper">
       <router-outlet></router-outlet>
     </div>
-
   </div>
-
-
 </mat-sidenav-container>
 
 

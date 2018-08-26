@@ -1,34 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-$main: #032d61;
-
-.bg-main {
-    background-color: $main;
-}
-
-
-a{
-    cursor: pointer;
-}
-
-a:hover{
-    text-decoration: none;
-    color:rgb(7, 233, 177)
-}
-
-button {
-    cursor: pointer;
-}
 
 
 
-body{
-    background-color: rgb(48, 47, 47)
-}
 
-ul {
-    list-style: none;
-  }
+
+
+
+
+
+
+
+
+
+
 
   .star{
     position: relative;
@@ -73,3 +58,11 @@ ul {
 // // Alternatively, you can import and @include the theme mixins for each component
 // // that you are using.
 // @include angular-material-theme($candy-app-theme);
+
+html, body, app-root, .app-frame {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    color: #e0e0e0;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +10,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   @Output() toggleSidenav = new  EventEmitter<void>()
-  constructor() { }
+  constructor(
+    private router: Router,
+    private data: DataService
+  )  { }
 
   ngOnInit() {
   }
 
+  get token() {
+    return localStorage.getItem('token')
+  }
 }

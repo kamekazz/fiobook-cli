@@ -23,25 +23,9 @@ export class AppComponent {
 
   }
 
-  get token() {
-    return localStorage.getItem('token')
-  }
-
-  collapse(){
-    this.isCollpased= true;
-  }
 
 
 
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
-  }
-
-  logout(){
-    this.data.user ={}
-    localStorage.clear();
-    this.router.navigate([''])
-  }
 
   // search(){
   //   if (this.searchTerm) {

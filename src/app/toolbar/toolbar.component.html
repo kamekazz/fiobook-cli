@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
-  <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+  <button  mat-button class="sidenav-toggle" *ngIf="token" (click)="toggleSidenav.emit()">
   <mat-icon>menu</mat-icon>
   </button>
+  <samp class="espasio"></samp>
 
+  <div *ngIf="data.user" class="userinfo">
+      <img id="userpitue" src="{{data.user.picture}}" > 
+      <span id="username"> {{data.user.tienda}}</span>
+  </div>
 </mat-toolbar>
