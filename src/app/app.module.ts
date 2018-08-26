@@ -11,7 +11,7 @@ import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
-import 'hammerjs';
+
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
@@ -26,7 +26,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { DebetCardComponent } from './debet-card/debet-card.component';
 import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
-
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -42,14 +44,16 @@ import { CliSergComponent } from './cli-serg/cli-serg.component';
     TodosClientesComponent,
     DebetCardComponent,
     MissClienteComponent,
-    CliSergComponent
+    CliSergComponent,
+    SidenavComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule,MatTableModule,FlexLayoutModule,
-    HttpClientModule,BrowserAnimationsModule
+    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,
+    HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,
 
   ],
   providers: [RestApiService,DataService,AuthGuardService],
