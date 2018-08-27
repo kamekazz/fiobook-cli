@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.data.error('password is not entreed')
       }
     } else {
-      this.data.error('email is not enterd')
+      this.data.error('El Correo Electrónico No Esta Engesado')
     }
   }
 

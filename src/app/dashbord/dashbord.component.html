@@ -2,12 +2,12 @@
 <mat-card class="separasion-tajeta">
     <mat-form-field id="serchbar" appearance="outline" >
         <mat-label>Buscar Cliente</mat-label>
-        <input matInput name="search" [(ngModel)]="search" (keyup.enter)="onClickSerch()"  >
+        <input matInput name="search" [(ngModel)]="search" (keyup.enter)="onClickSerch()"  autofocus >
         <mat-icon matSuffix (click)="onClickSerch()">search</mat-icon>
     </mat-form-field>
 </mat-card>
 
-<app-message></app-message>
+<app-message  autofocus></app-message>
 <div *ngFor="let cliente of resultOfSerch">
     <a routerLink="/debet/{{cliente._id}}">
         <mat-card class="separasion-tajeta search-card">
@@ -18,7 +18,6 @@
         </mat-card-header>
         <mat-card-content>
           <p>Nota: {{cliente.nota}}</p>
-          <p >Rating: {{cliente.averageRating}}</p>
           <p >Credito: $ <span class="capmax">{{cliente.capmax}}</span></p>
           <p >Total:$ <span class="total">{{cliente.total}}</span></p>
         </mat-card-content>

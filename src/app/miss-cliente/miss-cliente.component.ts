@@ -10,7 +10,7 @@ import { RestApiService } from '../rest-api.service';
 export class MissClienteComponent implements OnInit {
 
   allClientes2= []
-  
+  esterlla = 1
 
 
  

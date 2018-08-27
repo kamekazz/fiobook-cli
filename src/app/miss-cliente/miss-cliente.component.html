@@ -1,6 +1,8 @@
 
   <mat-card class="separasion-tajeta">
-    <h3>Cuentes Favoritos</h3>
+      <div fxLayout="row" fxLayoutAlign="center center" >
+            <h3>Cliente Favoritos </h3><ngb-rating id="esterlla" [(rate)]="esterlla" [starTemplate]="t" [readonly]="true" max="1"></ngb-rating>
+      </div>
     <div *ngIf="!allClientes2" class="m-auto">
         <mat-spinner></mat-spinner>
     </div>
@@ -15,3 +17,11 @@
         </a>
       </div>
   </mat-card>
+
+  <ng-template #t let-fill="fill" >
+      <span *ngIf="fill === 100" class="star full">&#9733;</span>
+      <span *ngIf="fill === 0" class="star ">&#9733;</span>
+      <span *ngIf="fill < 100 && fill > 0" class="star">
+       <span  class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+      </span>
+</ng-template>
