@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dashbord',
@@ -36,4 +37,13 @@ export class DashbordComponent implements OnInit {
       this.data.error(error['message'])
     }
   }
+
+  onClickSerch(){
+    this.onserch()
+    this.search = ''
+  }
+
+
+
+  
 }

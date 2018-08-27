@@ -1,32 +1,25 @@
-<section id="searchbar">
-        <div>
-          <div>
-            <div >
-              <div class="card bg-ligth">
-                <div class="card-body">
-                        <div>
-                            <div >
-                                <form>
-                                    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Buescar Cliente.." name="search">
-                                    <button class="btn btn-primary" (click)="onserch()" type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                            <ul *ngFor="let cliente of resultOfSerch">
-                              <li>Nombre: {{cliente.clienteId.name}} -- Apodo: {{cliente.clienteId.apodo}} -- Nota: {{cliente.nota}}</li>
-                            </ul>
-                        </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <app-miss-cliente>
-      </app-miss-cliente>
-      
-      <app-todos-clientes>
-      </app-todos-clientes>
 
-      <app-history>
-          
-      </app-history>
+<mat-card class="separasion-tajeta">
+    <mat-form-field id="serchbar" appearance="outline" >
+        <mat-label>Buscar Cliente</mat-label>
+        <input matInput name="search" [(ngModel)]="search" (keyup.enter)="onClickSerch()"  >
+        <mat-icon matSuffix (click)="onClickSerch()">search</mat-icon>
+    </mat-form-field>
+</mat-card>
+
+<app-message></app-message>
+              <ul *ngFor="let cliente of resultOfSerch">
+                <li>Nombre: {{cliente.clienteId.name}} -- Apodo: {{cliente.clienteId.apodo}} -- Nota: {{cliente.nota}}</li>
+              </ul>
+<app-miss-cliente></app-miss-cliente>
+
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form> -->

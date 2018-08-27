@@ -1,5 +1,10 @@
-<p *ngIf="data.message">
+
+
+<mat-card  *ngIf="data.message" class="separasion-tajeta">
+  <p *ngIf="data.message">
   <ngb-alert [type]="data.massageType" [dismissible]="false">
-    {{ data.message }}
+          {{ data.message }}
   </ngb-alert>
-</p>
+ </p>
+
+</mat-card>

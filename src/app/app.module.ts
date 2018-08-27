@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
@@ -28,7 +28,7 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule} from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,8 +52,8 @@ import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatBut
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,
-    HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,
+    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,
+    HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule
 
   ],
   providers: [RestApiService,DataService,AuthGuardService],
