@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+a {
+    cursor: pointer;
+}
+
+
+a:hover{
+    text-decoration: none;
+    color: rgb(218, 192, 45);
+}
+
+
+button{
+    cursor: pointer;
+}
 
 
 
@@ -8,14 +22,7 @@
 
 
 
-
-
-
-
-
-
-
-  .star{
+.star{
     position: relative;
     display: inline-block;
     font-size: 2rem;
