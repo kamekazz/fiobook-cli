@@ -1,39 +1,52 @@
-<section id="loginPage">
-    <div class="container p-5">
-      <div class="row mt-5">
-        <div class="col-lg-4 offset-lg-4">
-          <app-message></app-message>
-          <div class="card bg-ligth">
-            <div class="card-body">
-              <h4 class="text-center">Ingresar cliente</h4>
-              <hr>
-              <form>
-                <div class="form-group">
-                  <label class="form-control-label">Nombre</label>
-                  <input type="text" name="name" class="form-control" [(ngModel)]="name">
-                </div>
 
-                <div class="form-group">
-                  <label class="form-control-label">Apodo</label>
-                  <input type="text" name="apodo" class="form-control" [(ngModel)]="apodo">
-                </div>
 
-                
-                <div class="form-group">
-                    <label class="form-control-label">Cedula</label>
-                    <input type="number" name="cedula" class="form-control" [(ngModel)]="cedula">
-                </div>
-                <div class="from-check">
-                    <label class="from-check-label">
-                      <input type="checkbox" name="newClient" class="from-check-input" [(ngModel)]="newClient"> Cliente Nuevo
-                    </label>
-                </div>
-                <hr>
-                <button type="button" class="btn btn-primary btn-block" (click)="register()" [disabled]="btnDisabled">Login</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+<div fxLayout="column" fxLayoutAlign="center center" >
+  <app-message></app-message>
+  <mat-card class="login-card">
+    <div fxLayout="column" fxLayoutAlign="center center" >
+      <h2>Nuevo Cliente</h2>
     </div>
-  </section>
+    <form>
+      <div class="form-group">
+        <label class="form-control-label">Nombre</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="name">
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">Apodo</label>
+        <input type="text" name="apodo" class="form-control" [(ngModel)]="apodo">
+      </div>
+
+      <mat-card >
+        <mat-card-content>
+        <h3>Verificar Cedudala</h3>
+
+          <section>
+            <mat-slide-toggle
+            (change)="changed()">
+                Me deslisa!
+            </mat-slide-toggle>
+          </section>
+
+          <input *ngIf="checked" type="number" name="cedula" class="form-control" [(ngModel)]="cedula">
+        </mat-card-content>
+      </mat-card> 
+      <hr>
+      <div fxLayout="column" fxLayoutAlign="center center" >
+        <button mat-raised-button  (click)="register()" color="primary"[disabled]="btnDisabled">Ingresar  cliente</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+
+      
+
+
+
+        
+
+
+
+
+

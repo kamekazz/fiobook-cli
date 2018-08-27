@@ -14,7 +14,7 @@ export class ClienteComponent implements OnInit {
   apodo = ''
   cedula =''
   newClient = false
-
+  checked = false;
   btnDisabled = false
 
   constructor(
@@ -29,16 +29,12 @@ export class ClienteComponent implements OnInit {
   validate(){
     if (this.name) {
       if (this.apodo) {
-        if (this.cedula) {
-          return true
-        } else {
-          this.data.error('password is not entered')
-        }
+        return true
       }else{
-        this.data.error('email is not entered')
+        this.data.error('Porfavor Ingrese Apodo')
       }
     } else {
-      this.data.error('name in not entered')
+      this.data.error('El Nombre No Esta Ingresado')
     }
   }
 
@@ -69,5 +65,8 @@ export class ClienteComponent implements OnInit {
     this.btnDisabled = false
   }
 
+  changed(){
+    this.checked = !this.checked
+  }
 
 }

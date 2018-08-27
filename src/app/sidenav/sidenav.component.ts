@@ -14,7 +14,7 @@ export class SidenavComponent implements OnInit {
 
   rutasArray=[
     {name:'Tablero',logo:'dvr',ruta:'/'},
-    {name:'Ingersar Nuevo Cliente',logo:'person_add',ruta:'/clientserch'},
+    {name:'Ingersar Nuevo Cliente',logo:'person_add',ruta:'/cliente'},
   ]
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width:${SMALL_WIDTH_BREAKPOINT}px)`)
 

@@ -56,7 +56,7 @@ export class DashbordComponent implements OnInit {
       )
       if (data['success']) {
         this.allClientesSerchOn = data['data']
-        this.separator()
+        // this.separator()
 
       } else {
         this.data.error('Could not ferch allClientes..')
