@@ -57,7 +57,7 @@ export class RegistrationComponent implements OnInit {
     try{
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://127.0.0.1:3030/api/accounts/registarl',
+          'https://colbook.herokuapp.com/api/accounts/registarl',
           {
             tienda: this.tienda,
             email: this.email,

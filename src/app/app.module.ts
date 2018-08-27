@@ -28,7 +28,7 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule} from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatBut
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,
+    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,
     HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule
 
   ],

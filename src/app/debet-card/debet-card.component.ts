@@ -37,7 +37,7 @@ export class DebetCardComponent implements OnInit {
 
   getProfiel(){
     this.activatetedRoyte.params.subscribe(res =>{
-      this.rest.get(`http://127.0.0.1:3030/api/debet/${res['id']}`)
+      this.rest.get(`https://colbook.herokuapp.com/api/debet/${res['id']}`)
       .then((data) => {
         data['success']
           ? (this.detCard = data['data'],
@@ -65,7 +65,7 @@ export class DebetCardComponent implements OnInit {
     this.btnDisabled=true
     try {
       const data = await this.rest.post(
-        `http://127.0.0.1:3030/api/debet/${this.debemienId}`,
+        `https://colbook.herokuapp.com/api/debet/${this.debemienId}`,
         {
           dabets: this.fpagosFrom,
           nota: this.fnotaFrom,
@@ -89,7 +89,7 @@ export class DebetCardComponent implements OnInit {
     this.btnDisabled=true
     try {
       const data = await this.rest.post(
-        `http://127.0.0.1:3030/api/debet/${this.debemienId}`,
+        `https://colbook.herokuapp.com/api/debet/${this.debemienId}`,
         {
           pagos: this.ppagosFrom,
           nota: this.pnotaFrom,

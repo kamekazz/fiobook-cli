@@ -8,16 +8,33 @@
 </mat-card>
 
 <app-message></app-message>
-              <ul *ngFor="let cliente of resultOfSerch">
-                <li>Nombre: {{cliente.clienteId.name}} -- Apodo: {{cliente.clienteId.apodo}} -- Nota: {{cliente.nota}}</li>
-              </ul>
+<div *ngFor="let cliente of resultOfSerch">
+    <a routerLink="/debet/{{cliente._id}}">
+        <mat-card class="separasion-tajeta search-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Apodo: <span class="apodo">{{cliente.clienteId.apodo}}</span></mat-card-title>
+          <mat-card-subtitle>Nombre: {{cliente.clienteId.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Nota: {{cliente.nota}}</p>
+          <p >Rating: {{cliente.averageRating}}</p>
+          <p >Credito: $ <span class="capmax">{{cliente.capmax}}</span></p>
+          <p >Total:$ <span class="total">{{cliente.total}}</span></p>
+        </mat-card-content>
+    </mat-card>
+    </a>
+</div>
+
+
 <app-miss-cliente></app-miss-cliente>
+
 
 <!-- <form class="example-form">
     <mat-form-field class="example-full-width">
       <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of options" [value]="option">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{option}}
         </mat-option>
       </mat-autocomplete>

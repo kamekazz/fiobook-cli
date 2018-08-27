@@ -29,7 +29,7 @@ export class MissClienteComponent implements OnInit {
   async getmisCliente(){
     try {
       const data = await this.rest.get(
-        `http://127.0.0.1:3030/api/debet/`
+        `https://colbook.herokuapp.com/api/debet/`
       )
       data['success']
         ? (this.allClientes2 = data['data'])

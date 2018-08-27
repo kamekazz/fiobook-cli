@@ -42,7 +42,7 @@ export class ClientProfielComponent implements OnInit {
 
   getProfiel(){
     this.activatetedRoyte.params.subscribe(res =>{
-      this.rest.get(`http://127.0.0.1:3030/api/cliente/${res['id']}`)
+      this.rest.get(`https://colbook.herokuapp.com/api/cliente/${res['id']}`)
       .then((data) => {
         data['success']
           ? (this.cliente = data['data']).then(
@@ -59,7 +59,7 @@ export class ClientProfielComponent implements OnInit {
     this.btnDisabled= true
     try {
       const data = await this.rest.post(
-        'http://127.0.0.1:3030/api/review/new',
+        'api/review/new',
         {
           cienteId: this.cliente._id,
           nota: this.myReview.description,
@@ -99,7 +99,7 @@ export class ClientProfielComponent implements OnInit {
     this.linadeCreditoFormVies = true
     try {
       const data = await this.rest.post(
-        'http://127.0.0.1:3030/api/debet/new',
+        'https://colbook.herokuapp.com/api/debet/new',
         {
           name: this.cliteApodoSerch,
           nota: this.nota,

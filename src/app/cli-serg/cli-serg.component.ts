@@ -29,7 +29,7 @@ export class CliSergComponent implements OnInit {
     this.btnDisable = true
     try {
       const data = await this.rest.get(
-        `http://127.0.0.1:3030/api/cliente?search=${this.serchForm}`
+        `https://colbook.herokuapp.com/api/cliente?search=${this.serchForm}`
       )
       data['success']
         ? (this.resultOfSerch = data['clientesQuerryApodo'],this.resultOfSerchApodo = data['clientesQuerryName'] )

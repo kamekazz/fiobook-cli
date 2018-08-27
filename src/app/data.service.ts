@@ -40,7 +40,7 @@ export class DataService {
   async getProfile(){
     try {
       if (localStorage.getItem('token')) {
-        const data = await this.rest.get( 'http://127.0.0.1:3030/api/accounts/profile')
+        const data = await this.rest.get( 'https://colbook.herokuapp.com/api/accounts/profile')
         this.user = data['user']
       }
     } catch(error){

@@ -47,7 +47,7 @@ export class ClienteComponent implements OnInit {
     try{
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://127.0.0.1:3030/api/cliente/old/name',
+          'https://colbook.herokuapp.com/api/cliente/old/name',
           {
             name: this.name,
             apodo: this.apodo,

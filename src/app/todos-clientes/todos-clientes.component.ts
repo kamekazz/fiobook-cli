@@ -28,7 +28,7 @@ export class TodosClientesComponent implements OnInit {
   async getAllCliente(){
     try {
       const data = await this.rest.get(
-        `http://127.0.0.1:3030/api/cliente/todos`
+        `https://colbook.herokuapp.com/api/cliente/todos`
       )
       data['success']
         ? (this.allClientes = data['data'])

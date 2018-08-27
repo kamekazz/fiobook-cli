@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     try{
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://127.0.0.1:3030/api/accounts/login',
+          'https://colbook.herokuapp.com/api/accounts/login',
           {
             email: this.email,
             password: this.password
