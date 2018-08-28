@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { PostNewCreadeComponent } from '../post-new-creade/post-new-creade.component';
 
 @Component({
   selector: 'app-cliente',
@@ -17,10 +19,13 @@ export class ClienteComponent implements OnInit {
   checked = false;
   btnDisabled = false
 
+
   constructor(
     private router: Router,
     private data: DataService,
-    private rest: RestApiService
+    private rest: RestApiService,
+    private dialog: MatDialog
+
   ) { }
 
   ngOnInit() {
@@ -51,10 +56,13 @@ export class ClienteComponent implements OnInit {
           }
         )
         if (data['success']) {
-          this.data.success(data['message'])
           this.params1 = data['cliente']
-          this.router.navigate([`clienteid/${this.params1}`])
-
+          this.dialog.open(PostNewCreadeComponent,{
+            data:{
+              id: this.params1
+            }
+          })
+          this.data.error('')
         } else {
           this.data.error(data['message'])
         }

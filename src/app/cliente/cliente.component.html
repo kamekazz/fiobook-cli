@@ -1,8 +1,8 @@
 
-
-<div fxLayout="column" fxLayoutAlign="center center" >
+<div  fxLayout="row" fxLayoutAlign="space-around center" >
+<div fxLayout="column" fxFlex="320px" >
   <app-message></app-message>
-  <mat-card class="login-card">
+  <mat-card >
     <div fxLayout="column" fxLayoutAlign="center center" >
       <h2>Nuevo Cliente</h2>
     </div>
@@ -19,7 +19,7 @@
 
       <mat-card >
         <mat-card-content>
-        <h3>Verificar Cedudala</h3>
+        <h3>Verificar Cedula</h3>
 
           <section>
             <mat-slide-toggle
@@ -27,7 +27,6 @@
                 Me deslisa!
             </mat-slide-toggle>
           </section>
-
           <input *ngIf="checked" type="number" name="cedula" class="form-control" [(ngModel)]="cedula">
         </mat-card-content>
       </mat-card> 
@@ -38,7 +37,7 @@
     </form>
   </mat-card>
 </div>
-
+</div>
 
       
 

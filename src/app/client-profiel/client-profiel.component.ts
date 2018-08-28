@@ -12,12 +12,7 @@ export class ClientProfielComponent implements OnInit {
   cliente:any
   alldebet
   cliteApodoSerch
-  ///form
-  name = '';
-  nota ='';
-  cienteId=''
-  capmax
-  total
+
   btnDisabled = false
 
   myReview= {
@@ -59,7 +54,7 @@ export class ClientProfielComponent implements OnInit {
     this.btnDisabled= true
     try {
       const data = await this.rest.post(
-        'api/review/new',
+        'https://colbook.herokuapp.com/api/review/new',
         {
           cienteId: this.cliente._id,
           nota: this.myReview.description,
@@ -86,38 +81,13 @@ export class ClientProfielComponent implements OnInit {
 
   newLiniadeCreditoV1(){
     this.linadeCreditoFormVies = true
-    this.cienteId = this.cliente._id
-    this.cliteApodoSerch = this.cliente.name +' '+ this.cliente.apodo 
   }
 
   onClickAddbtnviewRivieBtn(){
     this.viewRivieBtn = !this.viewRivieBtn
   }
 
-  async oncretLine(){
-    this.btnDisabled=true
-    this.linadeCreditoFormVies = true
-    try {
-      const data = await this.rest.post(
-        'https://colbook.herokuapp.com/api/debet/new',
-        {
-          name: this.cliteApodoSerch,
-          nota: this.nota,
-          ciId: this.cienteId,
-          capmax: this.capmax,
-          total: this.total
-        }
-      )
-      data['success'] 
-      ? (this.data.success(data['message']) )
-      :this.data.error(data['message'])
-      
-    } catch (error) {
-      this.data.error(error['message'])
-    }
-    this.btnDisabled= false
-    this.linadeCreditoFormVies = false
-  }
+  
 
   onClickAddbtn(){
     this.addRivieBtn = !this.addRivieBtn

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       if (this.password) {
         return true
       }else{
-        this.data.error('password is not entreed')
+        this.data.error('Porfavor Entre Contrasella')
       }
     } else {
       this.data.error('El Correo Electrónico No Esta Engesado')

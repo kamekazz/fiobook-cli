@@ -27,7 +27,8 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule} from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule} from '@angular/material';
+import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.component';
 
 @NgModule({
   declarations: [
@@ -44,17 +45,19 @@ import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatBut
     MissClienteComponent,
     CliSergComponent,
     SidenavComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PostNewCreadeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),MatSlideToggleModule,
+    NgbModule.forRoot(),MatSlideToggleModule,MatDialogModule,
     FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,
     HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule
 
   ],
   providers: [RestApiService,DataService,AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[PostNewCreadeComponent]
 })
 export class AppModule { }
