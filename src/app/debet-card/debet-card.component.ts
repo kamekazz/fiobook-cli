@@ -25,12 +25,16 @@ export class DebetCardComponent implements OnInit {
   fpagosFrom
   pnotaFrom
   ppagosFrom
-
+  
   //segupa data
 
   //probar
   colorTotal
   porsiento
+  fioArry: any;
+  dataSource
+  dataSource1: any;
+  //tabel
 
   constructor(
     private data:DataService,
@@ -54,8 +58,11 @@ export class DebetCardComponent implements OnInit {
              this.pagoTotal = data['pagoTotal'],
             this.dabetTotal = data['dabetTotal'],
             this.pagosArry = this.detCard.pagos,
+            this.fioArry = this.detCard.dabets,
             this.debemienId = this.detCard._id,
-            this.totalDeBarCal()
+            this.totalDeBarCal(),
+            this.readryTable(),
+            console.log(this.pagosArry)
             )
           : this.router.navigate(['/'])
       }).catch((err) => {
@@ -70,6 +77,7 @@ export class DebetCardComponent implements OnInit {
         id: this.debemienId
       }
     })
+    this.data.error('')
   }
 
   pagar(){
@@ -78,6 +86,7 @@ export class DebetCardComponent implements OnInit {
         id: this.debemienId
       }
     })
+    this.data.error('')
   }
 
 
@@ -97,5 +106,14 @@ export class DebetCardComponent implements OnInit {
     }
   
   }
+
+  readryTable(){
+    this.dataSource = this.fioArry
+    this.dataSource1 = this.pagosArry
+
+  }
+  displayedColumns: string[] = ['cantida', 'created', 'nota']
+
+
 
 }

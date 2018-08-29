@@ -46,33 +46,64 @@
 
   <mat-tab label="Fiaos">
 
-    <div *ngIf="pagosArry" class="card bg-ligth">
-        <h4>Fiado:</h4>
-        <div  *ngFor="let deudaId of detCard.dabets">
-            <div class="p-3">
-                <p >nota: {{deudaId.nota}}</p>
-                <p >cantida:$ {{deudaId.cantida |  number}}</p>
-                <p >fecha: {{deudaId.created | date}}</p>
-              <hr>
-            </div>
-        </div>
-    </div>
-      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="cantida">
+            <th mat-header-cell *matHeaderCellDef> cantida </th>
+            <td mat-cell *matCellDef="let element"> {{element.cantida | currency}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef> created </th>
+            <td mat-cell *matCellDef="let element"> {{element.created | date}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="nota">
+            <th mat-header-cell *matHeaderCellDef> nota </th>
+            <td mat-cell *matCellDef="let element"> {{element.nota}} </td>
+          </ng-container>
+        
+
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
   </mat-tab>
 
 
         <mat-tab label="Pagos"> 
-            <div *ngIf="pagosArry" class="card bg-ligth">
-                <h4>pagos:</h4>
-                <div  *ngFor="let deudaId of pagosArry">
-                    <div class="p-3">
-                      <p >nota: {{deudaId.nota}}</p>
-                      <p>cantida:$ {{deudaId.cantida |  number}}</p>
-                      <p>fecha: {{deudaId.created | date}}</p>
-                      <hr>
-                    </div>
-                </div>
-            </div>
+
+      <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="cantida">
+            <th mat-header-cell *matHeaderCellDef> cantida </th>
+            <td mat-cell *matCellDef="let element"> {{element.cantida | currency}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef> created </th>
+            <td mat-cell *matCellDef="let element"> {{element.created | date}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="nota">
+            <th mat-header-cell *matHeaderCellDef> nota </th>
+            <td mat-cell *matCellDef="let element"> {{element.nota}} </td>
+          </ng-container>
+        
+
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
         
         </mat-tab>
       </mat-tab-group>
