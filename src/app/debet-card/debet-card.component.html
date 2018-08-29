@@ -1,6 +1,8 @@
 
     <app-message></app-message>
-<mat-card>
+    <mat-tab-group>
+    <mat-tab label="Clitet">
+    <mat-card>
     <div fxLayout="row"  *ngIf="!detCard" fxLayoutAlign="center center" >
         <mat-spinner></mat-spinner>
     </div>
@@ -13,17 +15,19 @@
       </div>
       <h3 class="capletelname">{{detCard.name}}</h3>
     </div>
-    
+
     <div fxLayout="row" fxLayoutAlign="space-between center">
       <mat-card-subtitle><p>{{detCard.created | date }}</p></mat-card-subtitle>
-          <mat-slide-toggle>
-             Favorito
-          </mat-slide-toggle>
+        <mat-slide-toggle>
+          Favorito
+        </mat-slide-toggle>
     </div>
     
     <hr>
     <p>Total: <span class="total"> {{detCard.total | currency}}</span></p>
     <p>Limite De Credito:<span class="credito"> {{detCard.capmax |  currency}}</span></p>
+    <mat-progress-bar mode="determinate"   [color]="colorTotal" [value]="porsiento"></mat-progress-bar>
+
     <mat-card-content>
       <p>Nota : {{detCard.nota}}</p>
     </mat-card-content>
@@ -35,13 +39,46 @@
       </div>
     </mat-card-actions>
 
-  </div>
+  </div></mat-card>
+  
+</mat-tab>
 
 
+  <mat-tab label="Fiaos">
 
-</mat-card>
+    <div *ngIf="pagosArry" class="card bg-ligth">
+        <h4>Fiado:</h4>
+        <div  *ngFor="let deudaId of detCard.dabets">
+            <div class="p-3">
+                <p >nota: {{deudaId.nota}}</p>
+                <p >cantida:$ {{deudaId.cantida |  number}}</p>
+                <p >fecha: {{deudaId.created | date}}</p>
+              <hr>
+            </div>
+        </div>
+    </div>
+      
+  </mat-tab>
 
-  <div *ngIf="fierView">
+
+        <mat-tab label="Pagos"> 
+            <div *ngIf="pagosArry" class="card bg-ligth">
+                <h4>pagos:</h4>
+                <div  *ngFor="let deudaId of pagosArry">
+                    <div class="p-3">
+                      <p >nota: {{deudaId.nota}}</p>
+                      <p>cantida:$ {{deudaId.cantida |  number}}</p>
+                      <p>fecha: {{deudaId.created | date}}</p>
+                      <hr>
+                    </div>
+                </div>
+            </div>
+        
+        </mat-tab>
+      </mat-tab-group>
+
+
+  <!-- <div *ngIf="fierView">
       <form action="">
         <input type="text" [(ngModel)]="fnotaFrom" name="notaFrom" placeholder="notaFrom">
         <input type="number" [(ngModel)]="fpagosFrom" name="pagosFrom" placeholder="pagos">
@@ -55,31 +92,10 @@
       <input type="number" [(ngModel)]="ppagosFrom" name="pagosFrom" placeholder="pagos">
       <button type="button" (click)="psometerPagos()" [disabled]="btnDisabled" class="btn btn-primary">Someter</button>
     </form>
-  </div>
-
-  <!-- <div *ngIf="pagosArry" class="card bg-ligth">
-      <h4>Fiado:</h4>
-      <div  *ngFor="let deudaId of detCard.dabets">
-          <div class="p-3">
-              <p >nota: {{deudaId.nota}}</p>
-              <p >cantida:$ {{deudaId.cantida |  number}}</p>
-              <p >fecha: {{deudaId.created | date}}</p>
-            <hr>
-          </div>
-      </div>
   </div> -->
 
-  <!-- <div *ngIf="pagosArry" class="card bg-ligth">
-      <h4>pagos:</h4>
-      <div  *ngFor="let deudaId of pagosArry">
-          <div class="p-3">
-            <p >nota: {{deudaId.nota}}</p>
-            <p>cantida:$ {{deudaId.cantida |  number}}</p>
-            <p>fecha: {{deudaId.created | date}}</p>
 
-            <hr>
-          </div>
-      </div>
-  </div> -->
+
+
 
 

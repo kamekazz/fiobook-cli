@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
+import { MatDialog } from '@angular/material';
+import { FioComponent } from '../fio/fio.component';
+import { PagosComponent } from '../pagos/pagos.component';
 
 @Component({
   selector: 'app-debet-card',
@@ -25,11 +28,16 @@ export class DebetCardComponent implements OnInit {
 
   //segupa data
 
+  //probar
+  colorTotal
+  porsiento
+
   constructor(
     private data:DataService,
     private activatetedRoyte:ActivatedRoute,
     private rest:RestApiService,
     private router:Router,
+    private dialog: MatDialog
 
   ) { }
 
@@ -46,7 +54,8 @@ export class DebetCardComponent implements OnInit {
              this.pagoTotal = data['pagoTotal'],
             this.dabetTotal = data['dabetTotal'],
             this.pagosArry = this.detCard.pagos,
-            this.debemienId = this.detCard._id
+            this.debemienId = this.detCard._id,
+            this.totalDeBarCal()
             )
           : this.router.navigate(['/'])
       }).catch((err) => {
@@ -56,61 +65,37 @@ export class DebetCardComponent implements OnInit {
   }
 
   fiar(){
-    this.fierView = !this.fierView
+    this.dialog.open(FioComponent,{
+      data:{
+        id: this.debemienId
+      }
+    })
   }
 
   pagar(){
-    this.pagosView = !this.pagosView
+    this.dialog.open(PagosComponent,{
+      data:{
+        id: this.debemienId
+      }
+    })
   }
 
-  async fsometerPagos(){
-    this.btnDisabled=true
-    try {
-      const data = await this.rest.post(
-        `https://colbook.herokuapp.com/api/debet/${this.debemienId}`,
-        {
-          dabets: this.fpagosFrom,
-          nota: this.fnotaFrom,
-        }
-      )
-      data['success'] 
-      ? (
-        this.data.success(data['message']),
-        this.getProfiel(),
-        this.fiar()
-    )
-      :this.data.error(data['message'])
-      
-    } catch (error) {
-      this.data.error(error['message'])
+
+
+  totalDeBarCal(){
+    this.porsiento = this.detCard.total / this.detCard.capmax
+    this.porsiento = 100 * this.porsiento
+    this.colorCal()
+  }
+
+  colorCal(){
+    if (this.porsiento > 61) {
+      this.colorTotal = 'accent'
     }
-    this.btnDisabled= false
-  }
-
-  async psometerPagos(){
-    this.btnDisabled=true
-    try {
-      const data = await this.rest.post(
-        `https://colbook.herokuapp.com/api/debet/${this.debemienId}`,
-        {
-          pagos: this.ppagosFrom,
-          nota: this.pnotaFrom,
-        }
-      )
-      data['success'] 
-      data['success'] 
-      ? (
-        this.data.success(data['message']),
-        this.getProfiel(),
-        this.pagar()
-    )
-      :this.data.error(data['message'])
-      
-    } catch (error) {
-      this.data.error(error['message'])
+    if (this.porsiento > 81 ) {
+      this.colorTotal = 'warn'
     }
-    this.btnDisabled= false
+  
   }
-
 
 }

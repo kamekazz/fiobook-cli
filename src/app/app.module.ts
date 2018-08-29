@@ -16,7 +16,6 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { ClienteComponent } from './cliente/cliente.component';
-import { CliDeComponent } from './cli-de/cli-de.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { ClientProfielComponent } from './client-profiel/client-profiel.component';
@@ -27,7 +26,7 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule} from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule, MatTabsModule, MatProgressBarModule} from '@angular/material';
 import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { FioComponent } from './fio/fio.component';
@@ -40,7 +39,6 @@ import { FioComponent } from './fio/fio.component';
     LoginComponent,
     DashbordComponent,
     ClienteComponent,
-    CliDeComponent,
     ClientProfielComponent,
     TodosClientesComponent,
     DebetCardComponent,
@@ -55,8 +53,8 @@ import { FioComponent } from './fio/fio.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),MatSlideToggleModule,MatDialogModule,
-    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,
+    NgbModule.forRoot(),MatSlideToggleModule,MatDialogModule,MatProgressBarModule,MatTableModule,
+    FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,MatTabsModule,
     HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule
 
   ],
