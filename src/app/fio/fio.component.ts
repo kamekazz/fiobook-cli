@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject,Output,EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./fio.component.scss']
 })
 export class FioComponent implements OnInit {
+  @Output() refreechProfial = new EventEmitter<any>()
   btnDisabled: boolean;
   fpagosFrom: any;
   fnotaFrom: any;
   debemienId: any;
 
   constructor(
+
     @Inject(MAT_DIALOG_DATA) private passData:any,
     private data:DataService,
     private rest:RestApiService,
@@ -36,7 +38,9 @@ export class FioComponent implements OnInit {
       )
       data['success'] 
       ? (
-        this.data.success(data['message'])
+        this.data.success(data['message']),
+        this.refreechProfial.emit()
+
     )
       :this.data.error(data['message'])
       

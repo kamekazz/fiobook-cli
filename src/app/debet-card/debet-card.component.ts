@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
@@ -12,6 +12,8 @@ import { PagosComponent } from '../pagos/pagos.component';
   styleUrls: ['./debet-card.component.scss']
 })
 export class DebetCardComponent implements OnInit {
+   
+
   pagosArry
   detCard:any
   pagoTotal:any
@@ -72,19 +74,25 @@ export class DebetCardComponent implements OnInit {
   }
 
   fiar(){
-    this.dialog.open(FioComponent,{
+    const dialogRes = this.dialog.open(FioComponent,{
       data:{
         id: this.debemienId
       }
+    })
+    dialogRes.afterClosed().subscribe(result =>{
+      this.getProfiel()
     })
     this.data.error('')
   }
 
   pagar(){
-    this.dialog.open(PagosComponent,{
+    const dialogRes = this.dialog.open(PagosComponent,{
       data:{
         id: this.debemienId
       }
+    })
+    dialogRes.afterClosed().subscribe(result =>{
+      this.getProfiel()
     })
     this.data.error('')
   }
