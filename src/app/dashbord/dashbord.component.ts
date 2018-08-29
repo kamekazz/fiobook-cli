@@ -16,6 +16,7 @@ export class DashbordComponent implements OnInit {
   newArray
   newArray1
   
+  bucadorBoton=false
 
 
   constructor(
@@ -35,7 +36,8 @@ export class DashbordComponent implements OnInit {
       )
       if (data['success']) {
         this.resultOfSerch = data['data']
-        this.data.success(data['message'])
+        this.bucadorBoton = true
+        this.data.error('')
       } else {
         this.data.error(data['message'])
       }
@@ -57,7 +59,7 @@ export class DashbordComponent implements OnInit {
       if (data['success']) {
         this.allClientesSerchOn = data['data']
         // this.separator()
-
+        
       } else {
         this.data.error('Could not ferch allClientes..')
       }
@@ -78,7 +80,9 @@ export class DashbordComponent implements OnInit {
     console.log(this.newArray);
   }
 
-
+  botoParaTras(){
+    this.bucadorBoton = !this.bucadorBoton
+  }
   
 
 
