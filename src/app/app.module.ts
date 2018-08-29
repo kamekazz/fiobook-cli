@@ -29,6 +29,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule} from '@angular/material';
 import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.component';
+import { PagosComponent } from './pagos/pagos.component';
+import { FioComponent } from './fio/fio.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.compon
     CliSergComponent,
     SidenavComponent,
     ToolbarComponent,
-    PostNewCreadeComponent
+    PostNewCreadeComponent,
+    PagosComponent,
+    FioComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,6 @@ import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.compon
   ],
   providers: [RestApiService,DataService,AuthGuardService],
   bootstrap: [AppComponent],
-  entryComponents:[PostNewCreadeComponent]
+  entryComponents:[PostNewCreadeComponent,PagosComponent,FioComponent]
 })
 export class AppModule { }

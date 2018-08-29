@@ -23,6 +23,8 @@ export class DebetCardComponent implements OnInit {
   pnotaFrom
   ppagosFrom
 
+  //segupa data
+
   constructor(
     private data:DataService,
     private activatetedRoyte:ActivatedRoute,
