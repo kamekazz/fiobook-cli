@@ -41,7 +41,7 @@ export class FioComponent implements OnInit {
       )
       data['success'] 
           ? (
-            this.data.success(data['message']),
+            this.data.success(`ANOTADO: $${this.fpagosFrom}.00`),
             this.refreechProfial.emit()
 
         )
