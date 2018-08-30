@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'cliente',component:ClienteComponent,canActivate:[AuthGuardService]},
   {path:'clienteid/:id',component:ClientProfielComponent,canActivate:[AuthGuardService]},
   {path:'debet/:id',component:DebetCardComponent,canActivate:[AuthGuardService]},
-  {path:'register',component:RegistrationComponent},
+  {path:'xregisterx',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
   {path:'clientserch',component:CliSergComponent,canActivate:[AuthGuardService]},
   {path:'**',redirectTo:''},

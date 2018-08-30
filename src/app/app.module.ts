@@ -28,8 +28,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule, MatTabsModule, MatProgressBarModule} from '@angular/material';
 import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.component';
-import { PagosComponent } from './pagos/pagos.component';
-import { FioComponent } from './fio/fio.component';
+import { PagosComponent } from './debet-card/pagos/pagos.component';
+import { FioComponent } from './debet-card/fio/fio.component';
+import { EditMaxCreditComponent } from './debet-card/edit-max-credit/edit-max-credit.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FioComponent } from './fio/fio.component';
     ToolbarComponent,
     PostNewCreadeComponent,
     PagosComponent,
-    FioComponent
+    FioComponent,
+    EditMaxCreditComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,6 @@ import { FioComponent } from './fio/fio.component';
   ],
   providers: [RestApiService,DataService,AuthGuardService],
   bootstrap: [AppComponent],
-  entryComponents:[PostNewCreadeComponent,PagosComponent,FioComponent]
+  entryComponents:[PostNewCreadeComponent,PagosComponent,FioComponent,EditMaxCreditComponent]
 })
 export class AppModule { }

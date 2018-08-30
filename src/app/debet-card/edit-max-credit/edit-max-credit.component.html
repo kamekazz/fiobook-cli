@@ -1,0 +1,17 @@
+<form fxLayout="column" fxLayoutAlign="center center">
+
+  <h3>Cambiar Limite De Credito</h3>
+
+
+
+<mat-form-field>
+  <input matInput name="maxCapFrom" [(ngModel)]="maxCapFrom"  autofocus placeholder="monto maxsimo.." type="number" >
+  <span matPrefix>$&nbsp;</span>
+  <span matSuffix>.00</span>
+</mat-form-field>
+
+<button mat-raised-button mat-dialog-close color="accent" (click)="cambiarMax()" class="btn btn-primary" >Someter</button>
+<hr>
+<h5>Limite Actuale</h5>
+<span id="credito-maxsimo">{{totalCredito | currency}}</span>
+</form>

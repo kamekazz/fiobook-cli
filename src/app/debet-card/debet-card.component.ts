@@ -1,10 +1,11 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
-import { MatDialog } from '@angular/material';
-import { FioComponent } from '../fio/fio.component';
-import { PagosComponent } from '../pagos/pagos.component';
+import { MatDialog,MatPaginator } from '@angular/material';
+import { FioComponent } from './fio/fio.component';
+import { PagosComponent } from './pagos/pagos.component';
+import { EditMaxCreditComponent } from './edit-max-credit/edit-max-credit.component';
 
 @Component({
   selector: 'app-debet-card',
@@ -12,8 +13,12 @@ import { PagosComponent } from '../pagos/pagos.component';
   styleUrls: ['./debet-card.component.scss']
 })
 export class DebetCardComponent implements OnInit {
-   
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
+
+
+  red = 'red'
+  green= 'green'
   pagosArry
   detCard:any
   pagoTotal:any
@@ -115,12 +120,30 @@ export class DebetCardComponent implements OnInit {
   
   }
 
+///table
   readryTable(){
     this.dataSource = this.fioArry
     this.dataSource1 = this.pagosArry
 
   }
   displayedColumns: string[] = ['cantida', 'created', 'nota']
+
+
+  ////Edit debet card popup
+  editBoton(){
+    const dialogRes = this.dialog.open(EditMaxCreditComponent,{
+      data:{
+        id: this.debemienId,
+        totalCadit: this.detCard.capmax
+      }
+    })
+    dialogRes.afterClosed().subscribe(result =>{
+      this.getProfiel()
+    })
+    this.data.error('')
+  }
+
+
 
 
 

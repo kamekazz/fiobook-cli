@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject,Output,EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { DataService } from '../data.service';
-import { RestApiService } from '../rest-api.service';
+import { DataService } from '../../data.service';
+import { RestApiService } from '../../rest-api.service';
 import { Router } from '@angular/router';
 
 @Component({
