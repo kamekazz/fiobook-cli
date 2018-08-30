@@ -15,6 +15,7 @@ export class FioComponent implements OnInit {
   fpagosFrom: any;
   fnotaFrom: any;
   debemienId: any;
+  totalCredito: any;
 
   constructor(
 
@@ -25,10 +26,12 @@ export class FioComponent implements OnInit {
 
   ngOnInit() {
     this.debemienId = this.passData.id
+    this.totalCredito = this.passData.totalCadit
   }
 
   async fsometerPagos(){
-    try {
+    if (this.verificarLimite()) {
+          try {
       const data = await this.rest.post(
         `https://colbook.herokuapp.com/api/debet/${this.debemienId}`,
         {
@@ -37,16 +40,27 @@ export class FioComponent implements OnInit {
         }
       )
       data['success'] 
-      ? (
-        this.data.success(data['message']),
-        this.refreechProfial.emit()
+          ? (
+            this.data.success(data['message']),
+            this.refreechProfial.emit()
 
-    )
-      :this.data.error(data['message'])
+        )
+          :this.data.error(data['message'])
       
-    } catch (error) {
-      this.data.error(error['message'])
+      } catch (error) {
+        this.data.error(error['message'])
+      }
+    } else {
+      this.data.error('Exsidio el limite de Credito')
+    }
+
+  }
+
+  verificarLimite(){
+    if (this.totalCredito >= this.fpagosFrom ) {
+      return true
     }
   }
+
 
 }

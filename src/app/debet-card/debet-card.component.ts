@@ -27,6 +27,7 @@ export class DebetCardComponent implements OnInit {
   pagosView = false
   debemienId:any
   btnDisabled= false
+  limiteDesponible:any
   // form//////////
   fnotaFrom
   fpagosFrom
@@ -79,9 +80,11 @@ export class DebetCardComponent implements OnInit {
   }
 
   fiar(){
+    this.limiteDisponibleCal()
     const dialogRes = this.dialog.open(FioComponent,{
       data:{
-        id: this.debemienId
+        id: this.debemienId,
+        totalCadit: this.limiteDesponible
       }
     })
     dialogRes.afterClosed().subscribe(result =>{
@@ -89,6 +92,8 @@ export class DebetCardComponent implements OnInit {
     })
     this.data.error('')
   }
+
+
 
   pagar(){
     const dialogRes = this.dialog.open(PagosComponent,{
@@ -102,6 +107,12 @@ export class DebetCardComponent implements OnInit {
     this.data.error('')
   }
 
+
+//calculadora
+
+  limiteDisponibleCal(){
+    this.limiteDesponible = this.detCard.capmax - this.detCard.total
+  }
 
 
   totalDeBarCal(){
