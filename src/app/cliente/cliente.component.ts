@@ -34,7 +34,11 @@ export class ClienteComponent implements OnInit {
   validate(){
     if (this.name) {
       if (this.apodo) {
-        return true
+        if (this.veryPhone()) {
+          return true
+        } else {
+          this.data.error('Porfavor Ingrese el Numero de Telefono Correcto')
+        }
       }else{
         this.data.error('Porfavor Ingrese Apodo')
       }
@@ -75,6 +79,12 @@ export class ClienteComponent implements OnInit {
 
   changed(){
     this.checked = !this.checked
+  }
+
+  veryPhone(){
+    if (this.cedula.toString().length >= 9 &&  this.cedula.toString().length <= 10 ) {
+      return true
+    }
   }
 
 }

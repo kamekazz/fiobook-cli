@@ -6,19 +6,31 @@
     <div *ngIf="!allClientes2" class="m-auto">
         <mat-spinner></mat-spinner>
     </div>
-      <div *ngFor="let cliente of allClientes2" class="col-md-12 ">
-        <a routerLink="/debet/{{cliente._id}}">
-          <div class="card bg-light">
-            <div class="card-body">
-              <p class="card-text">Number: {{cliente.clienteId.name}} </p>
-              <p class="card-text">Credito: {{cliente.capmax  }}</p>
-            </div>
-          </div>
-        </a>
-      </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Apodo</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cliente of allClientes2" >
+          <tr>
+            <td>{{cliente.clienteId.name}}</td>
+            <td>{{cliente.clienteId.apodo}}</td>
+            <a [routerLink]="['/debet',cliente._id]" >
+              <button class="boton-info" mat-raised-button color="primary"><mat-icon>info</mat-icon></button>
+            </a>
+          </tr>
+        </tbody>
+      </table> 
   </mat-card>
 
-  <ng-template #t let-fill="fill" >
+
+
+
+<ng-template #t let-fill="fill" >
       <span *ngIf="fill === 100" class="star full">&#9733;</span>
       <span *ngIf="fill === 0" class="star ">&#9733;</span>
       <span *ngIf="fill < 100 && fill > 0" class="star">

@@ -11,6 +11,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  loginBufff = false
   email =''
   password=''
 
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login(){
+    this.loginBufff =true
     this.btnDisabled=true
     try{
       if (this.validate()) {
@@ -60,5 +62,6 @@ export class LoginComponent implements OnInit {
       this.data.error(error['message'])
     }
     this.btnDisabled= false
+    this.loginBufff =false
   }
 }

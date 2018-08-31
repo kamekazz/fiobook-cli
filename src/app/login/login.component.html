@@ -1,7 +1,12 @@
+<mat-card *ngIf="loginBufff">
+  <div   fxLayout="column" fxLayoutAlign="space-around center"  >
+    <img id="logo" src="../assets/img/booklogo.png" alt="logo">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <h2>Decargando..</h2>
+  </div>
+</mat-card>
 
-
-
-<div  fxLayout="column" fxLayoutAlign="space-around center" >
+<div *ngIf="!loginBufff"  fxLayout="column" fxLayoutAlign="space-around center" >
 <mat-card class="separasion-tajeta login-card">
   <app-message></app-message>
     <div fxLayout="row" fxLayoutAlign="space-around center" >

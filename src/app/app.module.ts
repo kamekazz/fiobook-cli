@@ -26,7 +26,7 @@ import { MissClienteComponent } from './miss-cliente/miss-cliente.component';
 import { CliSergComponent } from './cli-serg/cli-serg.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule, MatTabsModule, MatProgressBarModule} from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatProgressSpinnerModule, MatSlideToggleModule, MatDialogModule, MatTabsModule, MatProgressBarModule, MatChipsModule} from '@angular/material';
 import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.component';
 import { PagosComponent } from './debet-card/pagos/pagos.component';
 import { FioComponent } from './debet-card/fio/fio.component';
@@ -54,7 +54,7 @@ import { EditMaxCreditComponent } from './debet-card/edit-max-credit/edit-max-cr
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,MatChipsModule,
     NgbModule.forRoot(),MatSlideToggleModule,MatDialogModule,MatProgressBarModule,MatTableModule,
     FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,MatTabsModule,
     HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule

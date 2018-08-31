@@ -17,17 +17,22 @@
         <input type="text" name="apodo" class="form-control" [(ngModel)]="apodo">
       </div>
 
-      <mat-card >
+      <div class="form-group">
+        <label class="form-control-label">Telefono</label>
+        <input type="number" name="cedula" class="form-control" [(ngModel)]="cedula" >
+      </div>
+
+
+    <mat-card >
         <mat-card-content>
         <h3>Verificar Cedula</h3>
-
           <section>
             <mat-slide-toggle
             (change)="changed()">
                 Me deslisa!
             </mat-slide-toggle>
           </section>
-          <input *ngIf="checked" type="number" name="cedula" class="form-control" [(ngModel)]="cedula">
+          <p *ngIf="checked">Este servision no esta disponible en esto mometon</p>
         </mat-card-content>
       </mat-card> 
       <hr>
