@@ -35,7 +35,7 @@ export class CliSergComponent implements OnInit {
         ? (this.resultOfSerch = data['clientesQuerryApodo'],this.resultOfSerchApodo = data['clientesQuerryName'] )
         : this.data.error('Could not ferch allClientes..')
     } catch (error) {
-      
+      this.data.error('Por favor verifica la conexion a internet')
     }
 
   }

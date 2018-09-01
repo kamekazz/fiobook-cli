@@ -48,5 +48,6 @@ export class DataService {
     }
   }
 
-
+//ng build --prod
+//firebase deploy
 }

@@ -65,7 +65,7 @@ export class ClientProfielComponent implements OnInit {
         ? this.data.success(data['message'])
         : this.data.error(data['message'])
     } catch (error) {
-      this.data.error(error['message'])
+      this.data.error('Por favor verifica la conexion a internet')
     }
     this.getProfiel()
     this.onClickAddbtn()

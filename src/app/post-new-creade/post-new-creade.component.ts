@@ -62,7 +62,7 @@ export class PostNewCreadeComponent implements OnInit {
         }
 
     } catch (error) {
-      this.data.error(error['message'])
+      this.data.error('Por favor verifica la conexion a internet')
     }
     this.btnDisabled= false
   }

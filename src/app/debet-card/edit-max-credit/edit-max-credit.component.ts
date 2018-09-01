@@ -38,7 +38,7 @@ export class EditMaxCreditComponent implements OnInit {
         this.data.error(data['message'])
       }
     } catch (error) {
-      this.data.error(error['message'])
+      this.data.error('Por favor verifica la conexion a internet')
     }
   }
 

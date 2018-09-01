@@ -72,7 +72,7 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['profile/address'])
             .then(()=>{
               this.data.success(
-                'registration successfull please your shipping addree below'
+                'bien benito'
               )
             }).catch(error => this.data.error(error))
         } else {
@@ -80,7 +80,7 @@ export class RegistrationComponent implements OnInit {
         }
       }
     } catch(error){
-      this.data.error(error['message'])
+      this.data.error('Por favor verifica la conexion a internet')
     }
     this.btnDisabled = false
   }

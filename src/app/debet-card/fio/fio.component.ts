@@ -48,7 +48,7 @@ export class FioComponent implements OnInit {
           :this.data.error(data['message'])
       
       } catch (error) {
-        this.data.error(error['message'])
+        this.data.error('Por favor verifica la conexion a internet')
       }
     } else {
       this.data.error('Exsidio el limite de Credito')

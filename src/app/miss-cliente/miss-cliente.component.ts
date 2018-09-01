@@ -35,7 +35,7 @@ export class MissClienteComponent implements OnInit {
         ? (this.allClientes2 = data['data'])
         : this.data.error('Could not ferch allClientes..')
     } catch (error) {
-      this.data.error(error['message'])
+      this.data.error('Por favor verifica la conexion a internet')
     }
   }
 }
