@@ -74,7 +74,7 @@ export class DebetCardComponent implements OnInit {
             )
           : this.router.navigate(['/'])
       }).catch((err) => {
-        this.data.error(err['message'])
+        this.data.error('Por favor verifica la conexion a internet')
       });
     })
   }

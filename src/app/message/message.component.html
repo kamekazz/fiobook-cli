@@ -1,10 +1,7 @@
-
-
 <mat-card  *ngIf="data.message" class="separasion-tajeta">
-  <p >
   <ngb-alert [type]="data.massageType" [dismissible]="false">
+        <div fxLayout="column" fxLayoutAlign="center center" >
           {{ data.message }}
+        </div>
   </ngb-alert>
- </p>
-
 </mat-card>

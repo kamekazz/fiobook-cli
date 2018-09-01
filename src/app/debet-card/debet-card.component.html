@@ -1,6 +1,5 @@
 
-    <app-message></app-message>
-    <mat-tab-group mat-stretch-tabs >
+    <mat-tab-group id="debet-card" backgroundColor="primary" mat-stretch-tabs >
     <mat-tab label="Cliente">
     <mat-card>
     <div fxLayout="row"  *ngIf="!detCard" fxLayoutAlign="center center" >
@@ -43,9 +42,8 @@
         <button mat-button (click)="pagar()"class="btn btn-danger" mat-raised-button color="accent">Pagar</button>
       </div>
     </mat-card-actions>
-
+    <app-message></app-message>
   </div></mat-card>
-  
 </mat-tab>
 
 

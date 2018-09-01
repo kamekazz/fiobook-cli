@@ -1,6 +1,6 @@
 
 <mat-card class="separasion-tajeta">
-   
+    <div fxLayout="column" fxLayoutAlign="center" >
     <div *ngIf="!bucadorBoton"  fxFlex="100%">
       <mat-form-field  fxFlex="100%" id="serchbar" appearance="outline" >
         <mat-label>Buscador de Cliente</mat-label>
@@ -9,10 +9,10 @@
       </mat-form-field>
     </div>
 
-    <div *ngIf="bucadorBoton" fxFlex="100">
-        <button fxFlex="100" mat-raised-button color="accent" (click)="botoParaTras()" >Buscador de Nuevo <mat-icon matSuffix >search</mat-icon></button>
+    <div *ngIf="bucadorBoton" fxFlex="100%">
+        <button fxFlex="100%" mat-raised-button color="accent" (click)="botoParaTras()" >Buscador de Nuevo <mat-icon matSuffix >search</mat-icon></button>
     </div>
-    
+    </div>
 </mat-card>
 
 <app-message  autofocus></app-message>
