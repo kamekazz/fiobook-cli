@@ -1,17 +1,19 @@
 
 
 
-<mat-sidenav-container class="app-sidenav-container">
-  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+<mat-sidenav-container class="app-sidenav-container" >
+  <mat-sidenav    #sidenav class="app-sidenav mat-elevation-z10 back-b" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
 
     <mat-toolbar color="primary">
-        ColBook
+        <span class="example-spacer"></span>
+        MENU
         <span class="example-spacer"></span>
         <img id="logo" src="../assets/img/logo.png">
         
     </mat-toolbar>
-    <mat-nav-list *ngIf="token"> 
-      <mat-list-item *ngFor="let ruta of rutasArray">
+
+    <mat-nav-list   *ngIf="token"> 
+      <mat-list-item class="text-sli" *ngFor="let ruta of rutasArray">
           <mat-icon >{{ruta.logo}}</mat-icon><a matLine routerLink="{{ruta.ruta}}">{{ ruta.name }}</a>
       </mat-list-item>
     </mat-nav-list>
