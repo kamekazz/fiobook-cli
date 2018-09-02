@@ -31,6 +31,8 @@ import { PostNewCreadeComponent } from './post-new-creade/post-new-creade.compon
 import { PagosComponent } from './debet-card/pagos/pagos.component';
 import { FioComponent } from './debet-card/fio/fio.component';
 import { EditMaxCreditComponent } from './debet-card/edit-max-credit/edit-max-credit.component';
+import { RecebosComponent } from './recebos/recebos.component';
+import { ReceboDetalleComponent } from './recebos/recebo-detalle/recebo-detalle.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { EditMaxCreditComponent } from './debet-card/edit-max-credit/edit-max-cr
     PagosComponent,
     FioComponent,
     EditMaxCreditComponent,
+    RecebosComponent,
+    ReceboDetalleComponent,
   ],
   imports: [
     BrowserModule,
