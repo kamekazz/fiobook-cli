@@ -1,7 +1,7 @@
 <form fxLayout="column" fxLayoutAlign="center center">
 
     <h3>Pagos</h3>
-
+    <p>Deuda Total: <span class="total"> {{dabetTotal | currency}}</span></p>
   <div class="form-group" >
     <label >Nota</label>
     <input type="text" class="form-control" name="pnotaFrom" [(ngModel)]="pnotaFrom"  placeholder="Nota" >

@@ -50,4 +50,6 @@ export class DataService {
 
 //ng build --prod
 //firebase deploy
+// git push heroku master
+
 }

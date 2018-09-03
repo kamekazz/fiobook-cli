@@ -1,48 +1,25 @@
-<mat-card  id="resibos">
-  <div>
-    <mat-card class=" mat-elevation-z10 pad-ding">
+<mat-card *ngIf="pagos" id="resibos">
+  <div *ngFor="let pago of pagos">
+    <mat-card class=" mat-elevation-z10 pad-ding targeta1">
       <div fxLayout="row" fxLayoutAlign="space-between center" >
-          <div><p class="pago-par">Pago: <span class="pagos">$500.00</span></p></div>  <div><button mat-mini-fab color="primary"><mat-icon class="boton">expand_more</mat-icon></button></div>
+        <p class="pago-par">Pago: <span class="pagos">{{pago.cantida | currency}}</span></p>
       </div>
-      <p class="fecha">Agus 23 2018</p><p>nota: <span class="notas">pago todo pero no le fio mas</span></p>
+      <p class="fecha"> {{pago.created | date}} </p><p>nota: <span class="notas"> {{pago.nota}}</span></p>
     </mat-card>
+    <div *ngFor="let historyfio of pago.historyfio">
 
-    <div class="targeta2">
+    <div  class="targeta2">
       <div fxLayout="row" fxLayoutAlign="space-around center" >
-        <p>Fio: <span class="fio">$30.00</span></p>
-        <p class="fecha2">Agus 2 2018</p><p>
+        <p>Fio: <span class="fio">{{historyfio.cantida | currency}}</span></p>
+        <p class="fecha2">{{historyfio.created | date}}</p><p>
       </div>
-      <hr>
-      <div fxLayout="row" fxLayoutAlign="space-around center" >
-          <p>Fio: <span class="fio">$500.00</span></p>
-          <p class="fecha2">Agus 2 2018</p><p>
-      </div>
-      <hr>
-      <div fxLayout="row" fxLayoutAlign="space-around center" >
-          <p>Fio: <span class="fio">$20.00</span></p>
-          <p class="fecha2">Agus 2 2018</p><p>
-        </div>
+      
     </div>
-
-
-
+    
+    </div>
   </div>
 
-  <mat-card class=" mat-elevation-z10 pad-ding">
-      <div fxLayout="row" fxLayoutAlign="space-between center" >
-        <div><p class="pago-par">pago: <span class="pagos">$3600.00</span></p></div>  <div><button mat-mini-fab color="primary"><mat-icon class="boton">expand_more</mat-icon></button></div>
-      </div>
-     <p class="fecha">Agus 23 2018</p><p>nota: <span class="notas">pago todo pero no le fio mas</span></p>
-  </mat-card>
-
-  <mat-card class=" mat-elevation-z10 pad-ding">
-      <div fxLayout="row" fxLayoutAlign="space-between center" >
-        <div><p class="pago-par">pago: <span class="pagos">$200.00</span></p></div>  <div><button mat-mini-fab color="primary"><mat-icon class="boton">expand_more</mat-icon></button></div>
-      </div>
-     <p class="fecha">Agus 23 2018</p><p>nota: <span class="notas">pago todo pero no le fio mas</span></p>
-  </mat-card>
-
-
-
-
 </mat-card >
+
+
+

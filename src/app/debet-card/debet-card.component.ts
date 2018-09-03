@@ -19,7 +19,9 @@ export class DebetCardComponent implements OnInit {
 
   red = 'red'
   green= 'green'
-  pagosArry
+ 
+
+  public pagosArry
   detCard:any
   pagoTotal:any
   dabetTotal:any
@@ -55,6 +57,7 @@ export class DebetCardComponent implements OnInit {
 
   ngOnInit() {
     this.getProfiel()
+      
   }
 
   getProfiel(){
@@ -69,8 +72,8 @@ export class DebetCardComponent implements OnInit {
             this.fioArry = this.detCard.dabets,
             this.debemienId = this.detCard._id,
             this.totalDeBarCal(),
-            this.readryTable()
-
+            this.readryTable(),
+            this.PagosHistoy()
             )
           : this.router.navigate(['/'])
       }).catch((err) => {
@@ -98,7 +101,8 @@ export class DebetCardComponent implements OnInit {
   pagar(){
     const dialogRes = this.dialog.open(PagosComponent,{
       data:{
-        id: this.debemienId
+        id: this.debemienId,
+        dabetTotal: this.dabetTotal
       }
     })
     dialogRes.afterClosed().subscribe(result =>{
@@ -135,7 +139,6 @@ export class DebetCardComponent implements OnInit {
   readryTable(){
     this.dataSource = this.fioArry
     this.dataSource1 = this.pagosArry
-
   }
   displayedColumns: string[] = ['cantida', 'created', 'nota']
 
@@ -155,6 +158,9 @@ export class DebetCardComponent implements OnInit {
   }
 
 
+  PagosHistoy(){
+    console.log(this.pagosArry);
+  }
 
 
 
