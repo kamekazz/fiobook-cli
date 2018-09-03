@@ -2,16 +2,19 @@
 
     <h3>Pagos</h3>
     <p>Deuda Total: <span class="total"> {{dabetTotal | currency}}</span></p>
+
+      <mat-form-field>
+    <input matInput name="ppagosFrom" [(ngModel)]="ppagosFrom"  autofocus placeholder="Monto.." type="number" >
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  
   <div class="form-group" >
     <label >Nota</label>
     <input type="text" class="form-control" name="pnotaFrom" [(ngModel)]="pnotaFrom"  placeholder="Nota" >
   </div>
 
-  <mat-form-field>
-    <input matInput name="ppagosFrom" [(ngModel)]="ppagosFrom"  autofocus placeholder="Monto.." type="number" >
-    <span matPrefix>$&nbsp;</span>
-    <span matSuffix>.00</span>
-  </mat-form-field>
+
 
   <button mat-raised-button mat-dialog-close color="accent" (click)="psometerPagos()" class="btn btn-primary" >Someter</button>
 </form>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '../../node_modules/@angular/router';
+
 import { DataService } from './data.service';
+import { SwUpdate } from '@angular/service-worker';
 
 
 
@@ -14,13 +15,17 @@ export class AppComponent {
   isCollpased = true;
   navbarOpen = false;
 
-
+  update: boolean = false
   constructor(
-    private router: Router,
-    private data: DataService
+    private data: DataService,
+    updates:SwUpdate
   ) {
     this.data.getProfile()
-
+    updates.available.subscribe(
+      event =>{
+        this.update = true
+      }
+    )
   }
 
 

@@ -72,8 +72,8 @@ export class DebetCardComponent implements OnInit {
             this.fioArry = this.detCard.dabets,
             this.debemienId = this.detCard._id,
             this.totalDeBarCal(),
-            this.readryTable(),
-            this.PagosHistoy()
+            this.readryTable()
+            
             )
           : this.router.navigate(['/'])
       }).catch((err) => {
@@ -158,9 +158,7 @@ export class DebetCardComponent implements OnInit {
   }
 
 
-  PagosHistoy(){
-    console.log(this.pagosArry);
-  }
+
 
 
 

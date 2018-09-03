@@ -33,6 +33,8 @@ import { FioComponent } from './debet-card/fio/fio.component';
 import { EditMaxCreditComponent } from './debet-card/edit-max-credit/edit-max-credit.component';
 import { RecebosComponent } from './recebos/recebos.component';
 import { ReceboDetalleComponent } from './recebos/recebo-detalle/recebo-detalle.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,7 @@ import { ReceboDetalleComponent } from './recebos/recebo-detalle/recebo-detalle.
     AppRoutingModule,MatChipsModule,
     NgbModule.forRoot(),MatSlideToggleModule,MatDialogModule,MatProgressBarModule,MatTableModule,
     FormsModule,MatTableModule,FlexLayoutModule,MatToolbarModule,MatListModule,MatIconModule,MatAutocompleteModule,MatProgressSpinnerModule,MatTabsModule,
-    HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule
+    HttpClientModule,BrowserAnimationsModule,MatSidenavModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [RestApiService,DataService,AuthGuardService],
