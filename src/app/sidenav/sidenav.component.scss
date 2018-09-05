@@ -52,7 +52,8 @@
   position: relative;
   left: 0px;
   top:7px;
-  font-size: 1.7rem
+  font-size: 1.7rem;
+  margin: 4px;
   
 }
 
@@ -60,7 +61,9 @@
   position: relative;
   left: 0px;
   top:7px;
-  font-size: 1.7rem
-  
+  font-size: 1.7rem;
+  margin: 4px;
   
 }
+
+a:focus {outline:0;}

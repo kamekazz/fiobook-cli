@@ -18,15 +18,13 @@ export class AppComponent {
   update: boolean = false
   constructor(
     private data: DataService,
-    updates:SwUpdate
+    
   ) {
     this.data.getProfile()
-    updates.available.subscribe(
-      event =>{
-        this.update = true
-      }
-    )
+
   }
+
+  
 
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { MatSidenav } from '@angular/material';
+import { SwUpdate } from '@angular/service-worker';
 
 const SMALL_WIDTH_BREAKPOINT = 720
 
@@ -20,7 +21,8 @@ export class SidenavComponent implements OnInit {
 
   constructor(zone: NgZone,
     private router: Router,
-    private data: DataService
+    private data: DataService,
+    private swUpdate: SwUpdate
   ) {
     this.mediaMatcher.addListener(mql => zone.run(()=>  this.mediaMatcher = mql))
    }
@@ -33,6 +35,17 @@ export class SidenavComponent implements OnInit {
         this.sidenav.close()
       }
     })
+
+    if (this.swUpdate.isEnabled) {
+
+      this.swUpdate.available.subscribe(() => {
+
+          if(confirm("New version available. Load New Version?")) {
+
+              window.location.reload();
+          }
+      });
+  }        
   }
 
   isScreenSmall(): boolean {

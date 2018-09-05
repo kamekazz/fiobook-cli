@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         if (data['success']) {
           localStorage.setItem('token', data['token'])
           await this.data.getProfile()
-          this.router.navigate(['/'])
+          this.router.navigate(['/tablero'])
         } else {
           this.data.error(data['message'])
         }
