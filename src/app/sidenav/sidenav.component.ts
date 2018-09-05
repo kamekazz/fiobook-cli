@@ -62,6 +62,9 @@ export class SidenavComponent implements OnInit {
     this.router.navigate(['login'])
   }
 
+  logoMove(){
+    console.log(`hola`);
+  }
 
 
 

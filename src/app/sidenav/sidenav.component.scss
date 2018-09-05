@@ -67,3 +67,12 @@
 }
 
 a:focus {outline:0;}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgb(97, 97, 97);
+  margin: 1em 0;
+  padding: 0; 
+}

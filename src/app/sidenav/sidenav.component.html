@@ -14,7 +14,7 @@
 
     <mat-nav-list   *ngIf="token"> 
      
-      <mat-nav-list  >
+      
 
         <mat-list-item  class="text-sli">
             <a matLine [routerLink]="['/tablero']"  routerLinkActive="active" >
@@ -33,14 +33,10 @@
             </a>
          </mat-list-item>
 
-
-
-
-
-      </mat-nav-list>
+      
     
     </mat-nav-list>
-    <hr class="text-sli">
+    <hr>
 
     <mat-toolbar *ngIf="token" (click)="logout()"  color="warn">
         <mat-toolbar-row>
@@ -53,12 +49,15 @@
   </mat-sidenav>
 
   <div class="app-sidenav-content">
-    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"
+    (toggleSidenav)="logoMove()"
+    ></app-toolbar>
     <div class="wrapper">
       <router-outlet></router-outlet>
       <small>sw.v1.0.3</small>
     </div>
   </div>
+
 </mat-sidenav-container>
 
 
