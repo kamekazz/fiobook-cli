@@ -11,6 +11,8 @@ import { CliSergComponent } from './cli-serg/cli-serg.component';
 
 const routes: Routes = [
   {path:'',component:DashbordComponent,canActivate:[AuthGuardService]},
+  {path:'tablero',component:DashbordComponent,canActivate:[AuthGuardService]},
+
   {path:'cliente',component:ClienteComponent,canActivate:[AuthGuardService]},
   {path:'clienteid/:id',component:ClientProfielComponent,canActivate:[AuthGuardService]},
   {path:'debet/:id',component:DebetCardComponent,canActivate:[AuthGuardService]},

@@ -13,11 +13,34 @@
     </mat-toolbar>
 
     <mat-nav-list   *ngIf="token"> 
-      <mat-list-item class="text-sli" *ngFor="let ruta of rutasArray">
-          <mat-icon >{{ruta.logo}}</mat-icon><a matLine routerLink="{{ruta.ruta}}">{{ ruta.name }}</a>
-      </mat-list-item>
+     
+      <mat-nav-list  >
+
+        <mat-list-item  class="text-sli">
+            <a matLine [routerLink]="['/tablero']"  routerLinkActive="active" >
+              <mat-icon id="logo-dir" >dvr</mat-icon>
+              Tablero
+              
+            </a>
+        </mat-list-item>
+
+        <mat-list-item class="text-sli">
+            <a  matLine [routerLink]="['/cliente']" routerLinkActive="active" >
+              <mat-icon id="logo-cli">person_add</mat-icon>
+              Ingersar Nuevo Cliente
+              <span class="example-spacer"></span>
+               
+            </a>
+         </mat-list-item>
+
+
+
+
+
+      </mat-nav-list>
+    
     </mat-nav-list>
-    <hr>
+    <hr class="text-sli">
 
     <mat-toolbar *ngIf="token" (click)="logout()"  color="warn">
         <mat-toolbar-row>
