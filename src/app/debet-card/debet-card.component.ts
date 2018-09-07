@@ -140,7 +140,7 @@ export class DebetCardComponent implements OnInit {
     this.dataSource = this.fioArry
     this.dataSource1 = this.pagosArry
   }
-  displayedColumns: string[] = ['cantida', 'created', 'nota']
+  displayedColumns: string[] = ['cantida', 'created', 'nota',]
 
 
   ////Edit debet card popup

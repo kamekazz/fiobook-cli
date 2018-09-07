@@ -4,14 +4,14 @@
       <div fxLayout="row" fxLayoutAlign="space-between center" >
         <p class="pago-par">Pago: <span class="pagos">{{pago.cantida | currency}}</span></p>
       </div>
-      <p class="fecha"> {{pago.created | date}} </p><p>nota: <span class="notas"> {{pago.nota}}</span></p>
+      <p class="fecha"> {{pago.created | date:'medium'}} </p><p>nota: <span class="notas"> {{pago.nota}}</span></p>
     </mat-card>
     <div *ngFor="let historyfio of pago.historyfio">
 
     <div  class="targeta2">
       <div fxLayout="row" fxLayoutAlign="space-around center" >
         <p>Fio: <span class="fio">{{historyfio.cantida | currency}}</span></p>
-        <p class="fecha2">{{historyfio.created | date}}</p><p>
+        <p class="fecha2">{{historyfio.created | date:'medium'}}</p><p>
       </div>
       
     </div>

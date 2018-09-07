@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { MatSidenav } from '@angular/material';
